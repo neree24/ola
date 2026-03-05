@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Preguntita</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background:#ffd6e7;
+    margin-top:120px;
+}
+
+h1{
+    font-size:38px;
+}
+
+button{
+    font-size:20px;
+    padding:12px 25px;
+    margin:20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#si{
+    background:#ff4d88;
+    color:white;
+    font-size:20px;
+}
+
+#no{
+    background:#cccccc;
+}
+</style>
+</head>
+
+<body>
+
+<h1>¿Nos volvemos a hablar?<br>Y no como amigos 😛</h1>
+
+<button id="si" onclick="aceptar()">si</button>
+<button id="no" onclick="cambiar()">no</button>
+
+<script>
+
+let tamaño = 20;
+let contador = 0;
+
+const frases = [
+"seguro?",
+"sino te hago cosquillas en la mano",
+"por extremoduro 🙏🙏"
+];
+
+function aceptar(){
+document.body.innerHTML = "<h1>ya sabia yo, escribeme corazon de melon, juro no volver a meterme con tu musica de mierda</h1>";
+}
+
+function cambiar(){
+
+contador++;
+
+if(contador <= frases.length){
+document.getElementById("no").innerText = frases[contador-1];
+}
+
+tamaño += 10;
+document.getElementById("si").style.fontSize = tamaño + "px";
+
+if(contador > frases.length){
+mover();
+}
+
+}
+
+function mover(){
+const boton = document.getElementById("no");
+
+const x = Math.random() * (window.innerWidth - 100);
+const y = Math.random() * (window.innerHeight - 50);
+
+boton.style.position="absolute";
+boton.style.left=x+"px";
+boton.style.top=y+"px";
+}
+
+</script>
+
+</body>
+</html>
